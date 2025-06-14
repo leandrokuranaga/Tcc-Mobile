@@ -1,157 +1,174 @@
-# __Para testar a aplicação é necessário atender a alguns requisitos__
+# Requirements to Test the Application
 
-***
-* [Instalar o Visual Studio Code](https://code.visualstudio.com/download)
-* [Instalar o Node.js](https://nodejs.org/en/download/)
-* [Instalar o Android Studio](https://developer.android.com/studio/install?hl=pt-br)
-* [Instalar o Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [Instalar o Git](https://git-scm.com/downloads)
-***
-## __Comandos úteis__
-Para verificar a versão do java
+![React Native](https://img.shields.io/badge/React%20Native-20232A?style=for-the-badge\&logo=react\&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge\&logo=node.js\&logoColor=white)
+![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84?style=for-the-badge\&logo=android-studio\&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge\&logo=java\&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge\&logo=git\&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
 
+---
 
-* ___Java -version___
+* [Install Visual Studio Code](https://code.visualstudio.com/download)
+* [Install Node.js](https://nodejs.org/en/download/)
+* [Install Android Studio](https://developer.android.com/studio/install?hl=en)
+* [Install Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Install Git](https://git-scm.com/downloads)
 
+---
 
-Para verificar a versão do Node
+## Useful Commands
 
+To check Java version:
 
-* ___Node -v___
+```bash
+java -version
+```
 
-Para verificar a versão do node package
+To check Node version:
 
+```bash
+node -v
+```
 
-* ___Npm -v___
-***
-## **Adicionar as variáveis de ambiente**
+To check npm version:
 
-1. Pressione a tecla Windows+E vá até ao lado esquerdo e clique com o botão direito em Este Computador.
-2. Clique em Configurações Avançadas do Sistema no lado esquerdo.
-3. Clique em Variáveis de Ambiente.
-***
-## **Java**
+```bash
+npm -v
+```
 
- Para adicionar a variável JAVA ao path copie o path do jdk 8 (Geralmente fica em C:/Arquivos de Programas/Java/”Entrar na versão do seu Java e copiar”) vá até as variáveis de sistema e clique em novo.
+---
 
+## Add Environment Variables
 
-Coloque o nome da variável de “JAVA_HOME” e cole o path abaixo.
-***
-## **Android**
-Para achar o path do sdk basta abrir o android studio vá até configurações, SDK MANAGER e estará localizado no topo escrito Android SDK Location.
+1. Press `Windows + E`, right-click on **This PC**.
+2. Click on **Advanced system settings**.
+3. Click on **Environment Variables**.
 
+---
 
-Vá até as variáveis de usuário, crie uma nova variável com nome Android_Home e cole o path.
+## Java
 
+To add the JAVA path:
 
- Vá até o path nas variáveis de usuário e crie 4 novas variáveis da seguinte forma.
-* %Android_Home%\emulator
-* %Android_Home%\tools
-* %Android_Home%\tools\bin
-* %Android_Home%\platform-tools
+* Go to `C:/Program Files/Java/`, open the JDK version folder, and copy the path.
+* In **System Variables**, click **New**:
 
+  * Variable Name: `JAVA_HOME`
+  * Variable Value: *Paste the copied path*
 
-**Para verificar se está funcionando execute o comando no CMD:**
+---
 
+## Android
 
-***Adb  --version***	Variável no sistema do %Android_Home%
+To find the SDK path:
 
- ***Emulator -version*** Variável do sistema %Android_Home%\emulator
+* Open Android Studio → Settings → SDK Manager.
+* Copy the **Android SDK Location** from the top.
+* In **User Variables**, create a new variable:
 
- Logo após isso usa-se o comando no CMD:
+  * Name: `ANDROID_HOME`
+  * Value: *Paste the SDK path*
 
-***Sdkmanager --licenses*** 			Para aceitar as licenças (Use o Y para yes)
-***
-## 	**PARA EMULADOR COM CLI (USE SEMPRE O CMD)**
+Then add the following to the **Path** (User Variables):
 
-***Emulator -list-avds***				Para ver disponibilidade de emuladores.
+```
+%ANDROID_HOME%\emulator
+%ANDROID_HOME%\tools
+%ANDROID_HOME%\tools\bin
+%ANDROID_HOME%\platform-tools
+```
 
+**To test in CMD:**
 
- ***Emulator -no-snapshot -avd “Versão do dispositivo”***  Irá disparar uma tela com um emulador android.
+```bash
+adb --version        # Tests %ANDROID_HOME%
+emulator -version    # Tests emulator path
+sdkmanager --licenses # Accept licenses (use Y)
+```
 
+---
 
- ***Npm i –g react-native-cli*** 		Irá instalar globalmente o react native. 
+## Emulator with CLI (Always use CMD)
 
+```bash
+emulator -list-avds
+emulator -no-snapshot -avd "DeviceVersion"
+npm i -g react-native-cli
+mkdir "folderName"
+react-native init "projectName"
+cd projectName
+react-native run-android
+code .
+```
 
- ***Mkdir 	“Nome da pasta”***						Para fazer pasta.
+> Start coding in `App.js`
 
+---
 
- ***React-native init “nome do projeto”*** 		Este comando deve ser executado na pasta com o cd pelo terminal.
+## Emulator Using Physical Device (Expo)
 
+* Install [Expo app](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR) on your phone
 
- Entre no seu projeto com cd e execute o comando:
+```bash
+npm i -g create-react-native-app
+create-react-native-app "AppName"
+cd AppName
+code .
+npm start
+```
 
+> Scan the QR Code shown to run the app. Start coding in `App.js`
 
- ***React-native run-android***			Este comando faz com que o emulador funcione em dispositivos android.
+---
 
+## Emulator Using Physical Device (No Expo)
 
- Utilize o comando ***code .*** 			Para abrir o visual studio code para poder codar o projeto.
- A aplicação em que você precisa codar é a App.js.
-***
-## 	**PARA EMULADOR COM SEU DISPOSITIVO FÍSICO**
+```bash
+npm i -g create-react-native-app
+create-react-native-app "AppName"
+cd AppName
+code .
+# Plug your mobile device via USB
+react-native run-android
+```
 
- Baixe o app [EXPO para android.](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR)
+> Start coding in `App.js`
 
+---
 
- ***npm i –g create-react-native-app*** 		Instalar pacote node para emular dispositivo.
+## Using an Existing Project
 
+```bash
+git clone "project.git"
+cd projectFolder
+code .
+npm install
+npm run android
+```
 
- ***create-react-native-app*** “Nome da aplicação” Ele irá fazer uma pasta com todos os recursos necessários para sua aplicação funcionar.
+---
 
+## Common Dev Server Errors
 
- Entre na pasta com o comando ***cd.***
+* Delete the `node_modules` folder:
 
+```bash
+rm -rf node_modules
+```
 
-Utilize o comando ***code .*** 			Para abrir o visual studio code para poder codar o projeto.
+* Reinstall packages:
 
+```bash
+npm install
+```
 
- Utilize o comando ***npm start*** para abrir uma janela com QR code e desbloqueie o mesmo com seu celular.
+* Run the app again:
 
+```bash
+npm run android
+```
+📜 License
 
- A aplicação em que você precisa codar é a App.js.
-***
-## 	**PARA EMULADOR COM SEU DISPOSITIVO FÍSICO SEM BAIXAR O EXPO**
-***npm i –g create-react-native-app*** 		Instalar pacote node para emular dispositivo.
+This project is licensed under the MIT License.
 
-
- ***create-react-native-app*** “Nome da aplicação” Ele irá fazer uma pasta com todos os recursos necessários para sua aplicação funcionar.
-
-
- Entre na pasta com o comando ***cd.***
-
-
- Utilize o comando ***code .*** Para abrir o visual studio code na pasta do projeto.
-
-
- Plugue seu dispositivo móvel com cabo no computador.
-
-
- Utilize o comando ***react-native run-android*** Para o Node iniciar e começar a instalação da aplicação em seu dispositivo.
-
-
- A aplicação em que você precisa codar é a App.js.
-***
-## **Para Utilizar o projeto**
-* Utilizar o comando ***git clone "projeto.git"*** 
-
-
-* Entre na pasta com o comando ***cd .***
-
-
-* Utilize o comando ***code .*** Para abrir o visual studio code na pasta do projeto.
-
-
-* Instale as dependências através do comando ***Npm install***
-
-
-* Rode a aplicação com o comando ***npm run android***
-***
-## **Eventuais erros no development server**
-
-* Exclua a pasta node_modules.
-
-
-* Use o comando ___npm install___
-
-
-* Rode sua aplicação com ***npm run android***
